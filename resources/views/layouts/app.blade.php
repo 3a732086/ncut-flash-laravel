@@ -35,7 +35,7 @@
     <!-- <link rel="stylesheet" href="{{asset('css/toastr.css')}}"> -->
     @guest
     @else
-    @if(Auth::user()->role == 1) 
+    @if(Auth::user()->role == 1)
     <style>
     *{
         -webkit-touch-callout:none;  /*系統預設選單被禁用*/
@@ -60,7 +60,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    English Online
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -68,7 +68,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    
+
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -89,7 +89,7 @@
                                         <a class="nav-link" href="{{route('user_show')}}">檢視所有資料</a>
                                     </li>
                                 </ul>
-                                
+
                             @elseif (Auth::user()->role == 2)
                                 <ul class="navbar-nav mr-auto">
                                     <li class="nav-item active">
@@ -101,7 +101,7 @@
                                     <li class="nav-item active">
                                         <a class="nav-link" href="{{route('user_activity')}}">活動紀錄</a>
                                     </li>
-                                </ul>    
+                                </ul>
                                 <ul class="navbar-nav mr-auto">
                                     <li class="nav-item active">
                                         <a class="nav-link" href="{{route('quiz_show')}}">小考分數</a>
@@ -157,12 +157,12 @@
     </footer>
     @guest
     @else
-    @if(Auth::user()->role == 1)            
+    @if(Auth::user()->role == 1)
         <script type="text/javascript">
-            document.oncontextmenu=new Function("event.returnValue=false"); 
-            document.onselectstart=new Function("event.returnValue=false"); 
+            document.oncontextmenu=new Function("event.returnValue=false");
+            document.onselectstart=new Function("event.returnValue=false");
         </script>
-    @endif 
+    @endif
     @endguest
     <script src="{{asset('js/jquery.scrolling-tabs.min.js')}}"></script>
 </body>

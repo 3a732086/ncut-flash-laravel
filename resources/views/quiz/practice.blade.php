@@ -20,27 +20,27 @@
 
     button.words {
         background-image:url('{{asset('img/quiz/英文單字版.png')}}');
-        background-size: cover; 
-        width: 150px; 
-        height: 100px; 
+        background-size: cover;
+        width: 150px;
+        height: 100px;
         border: none;
         background-color: #f0f8ff00;
     }
 
     button.timer {
         background-image: url('{{asset('img/quiz/計時.png')}}');
-        background-size: cover; 
-        width: 150px; 
-        height: 100px; 
+        background-size: cover;
+        width: 150px;
+        height: 100px;
         border: none;
         background-color: #f0f8ff00;
     }
 
     button.score {
         background-image: url('{{asset('img/quiz/分數.png')}}');
-        background-size: cover; 
-        width: 150px; 
-        height: 100px; 
+        background-size: cover;
+        width: 150px;
+        height: 100px;
         border: none;
         background-color: #f0f8ff00;
         color: #fff;
@@ -58,7 +58,7 @@
     </style>
 </head>
 <body>
-    
+
     <div class="container-fluid ">
 
         <div class="row">
@@ -73,15 +73,13 @@
                 <button id="btn1" class="words" value="1"></button>
                 <button id="btn2" class="words" value="3"></button>
                 <button id="btn3" class="words" value="2"></button>
-                <button  id="btn4"class="words" value="5"></button>
-
-                <button  id="btn5"class="words" value="3"></button>
-
-                <button  id="btn6"class="words" value="4"></button>
-                <button  id="btn7"class="words" value="2"></button>
-                <button  id="btn8"class="words" value="4"></button>        
-                <button  id="btn9"class="words" value="1"></button>
-                <button  id="btn10"class="words" value="5"></button>
+                <button id="btn4" class="words" value="5"></button>
+                <button id="btn5" class="words" value="3"></button>
+                <button id="btn6" class="words" value="4"></button>
+                <button id="btn7" class="words" value="2"></button>
+                <button id="btn8" class="words" value="4"></button>
+                <button id="btn9" class="words" value="1"></button>
+                <button id="btn10" class="words" value="5"></button>
 
             </div>
         </div>
@@ -159,11 +157,11 @@
                             // console.log(fail);
                             // i=i+1;
                         }
-                        
+
                     }
                     temp.length = 0;
                 }
-            });  
+            });
             var counter = 20;
                 var interval = setInterval(function() {
                     counter--;
@@ -171,7 +169,7 @@
                     if (counter <= 0) {
                         clearInterval(interval);
                         $('#clock').text("Times Up");
-                        alert('Times Up');  
+                        alert('Times Up');
                         return;
                     }else{
                         $('#clock').text(counter+"秒");

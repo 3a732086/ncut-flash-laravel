@@ -80,7 +80,7 @@
                 <button id="btn8" class="words" value="4"></button>
                 <button id="btn9" class="words" value="1"></button>
                 <button id="btn10" class="words" value="5"></button>
-
+                <div id="redirect_btn"></div>
             </div>
         </div>
     </div>
@@ -170,8 +170,14 @@
                         clearInterval(interval);
                         $('#clock').text("Times Up");
                         alert('Times Up');
+                        $( "#redirect_btn" ).html( "<a href='{{route('menu')}}' class='btn btn-info mr-2 mt-2'>回上一頁</a>" );
                         return;
-                    }else{
+                    }
+                    else if (counter <= 10){
+                        $('#clock').text(counter+"秒");
+                        $( "#redirect_btn" ).html( "<a href='{{route('menu')}}' class='btn btn-info mr-2 mt-2'>提早結束</a>" );
+                    }
+                    else{
                         $('#clock').text(counter+"秒");
                         console.log("Timer --> " + counter);
                     }

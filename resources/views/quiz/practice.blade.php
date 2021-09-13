@@ -109,7 +109,7 @@
             @endif
             $.get(query_url, function(data){
                 // re =data;
-                console.log(data);
+                //console.log(data);
                 for(var i = 0 ; i<data[0].length ; i++){
                     $("#"+data[0][i]).val(data[2][i]);
                     $("#"+data[0][i]).text(data[1][i]);
@@ -123,7 +123,7 @@
             // var i = 0;
             $("button").click(function() {
                 temp.push($(this));
-                console.log(temp);
+                //console.log(temp);
                 if(temp.length > 1){
                     // console.log(temp[0].text());
                     if(temp[0].attr('id') == temp[1].attr('id')){
@@ -136,7 +136,7 @@
                             temp[1].css('display','none');
                             score+=10;
                             total_quiz = total_quiz+1;
-                            console.log(total_quiz);
+                            //console.log(total_quiz);
                             $(".badge").text(score);
                             if(total_quiz == 5){
                                 submit = true;
@@ -163,12 +163,9 @@
                 }
             });
             // 取得網址的id
-            console.log(location.href);
             var url = location.href;
             var id = url.substring(url.lastIndexOf('=') + 1);
-            console.log(id)
             var next_id = parseInt(id) + 1;    //跳轉至下一頁的id
-            console.log(next_id)
 
             var counter = 20;
             var interval = setInterval(function() {
@@ -197,7 +194,7 @@
                 }
                 else{
                     $('#clock').text(counter+"秒");
-                    console.log("Timer --> " + counter);
+                    //console.log("Timer --> " + counter);
                 }
             }, 1000);
         });

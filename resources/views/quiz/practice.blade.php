@@ -114,8 +114,8 @@
                     $("#"+data[0][i]).val(data[2][i]);
                     $("#"+data[0][i]).text(data[1][i]);
                 }
-
             });
+
             var score = 0;
             var total_quiz = 0;
             var fail=[] ;
@@ -162,27 +162,45 @@
                     temp.length = 0;
                 }
             });
+            // 取得網址的id
+            console.log(location.href);
+            var url = location.href;
+            var id = url.substring(url.lastIndexOf('=') + 1);
+            console.log(id)
+            var next_id = parseInt(id) + 1;    //跳轉至下一頁的id
+            console.log(next_id)
+
             var counter = 20;
-                var interval = setInterval(function() {
-                    counter--;
-                    // Display 'counter' wherever you want to display it.
-                    if (counter <= 0) {
-                        clearInterval(interval);
-                        $('#clock').text("Times Up");
-                        alert('Times Up');
-                        $( "#redirect_btn" ).html( "<a href='{{route('menu')}}' class='btn btn-info mr-2 mt-2'>回上一頁</a>" );
-                        return;
+            var interval = setInterval(function() {
+                counter--;
+                // Display 'counter' wherever you want to display it.
+                if (counter <= 0) {
+                    clearInterval(interval);
+                    $('#clock').text("Times Up");
+                    alert('Times Up');
+                    if (next_id <= 9) {
+                        $( "#redirect_btn" ).html("<a href='{{route('menu')}}' class='btn btn-info mr-2 mt-2'>回關卡頁</a><a href='{{route('practice')}}?id=" + next_id + "' class='btn btn-info mr-2 mt-2'>下一關</a>");
                     }
-                    else if (counter <= 10){
-                        $('#clock').text(counter+"秒");
-                        $( "#redirect_btn" ).html( "<a href='{{route('menu')}}' class='btn btn-info mr-2 mt-2'>提早結束</a>" );
+                    else {
+                        $( "#redirect_btn" ).html("<a href='{{route('menu')}}' class='btn btn-info mr-2 mt-2'>回關卡頁</a>");
                     }
-                    else{
-                        $('#clock').text(counter+"秒");
-                        console.log("Timer --> " + counter);
+                    return;
+                }
+                else if (counter <= 10){
+                    $('#clock').text(counter+"秒");
+                    if (next_id <= 9) {
+                        $( "#redirect_btn" ).html("<a href='{{route('menu')}}' class='btn btn-info mr-2 mt-2'>提早結束，回關卡頁</a><a href='{{route('practice')}}?id=" + next_id + "' class='btn btn-info mr-2 mt-2'>提早結束，跳下一關</a>");
                     }
-                }, 1000);
-            });
+                    else {
+                        $( "#redirect_btn" ).html("<a href='{{route('menu')}}' class='btn btn-info mr-2 mt-2'>提早結束，回關卡頁</a>");
+                    }
+                }
+                else{
+                    $('#clock').text(counter+"秒");
+                    console.log("Timer --> " + counter);
+                }
+            }, 1000);
+        });
 
     </script>
 

@@ -40,6 +40,7 @@ body {
     background-color: #f8fafc
 }
 
+
 [tabindex="-1"]:focus {
     outline: 0!important
 }
@@ -510,6 +511,25 @@ pre code {
     .container {
         max-width:1140px
     }
+}
+
+.container1 {
+    max-width:1140px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    min-height: 330px;
+}
+
+.photo-box {
+    /*background-image: url("/img/new-bg-image.jpg");*/
+    /*background-position: center;*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: 100%;*/
+    /*background-size: cover;*/
+    /*max-width: 2000px;*/
+    margin-top: 500px;
 }
 
 .container-fluid {
@@ -7123,7 +7143,13 @@ a.bg-dark:focus,a.bg-dark:hover,button.bg-dark:focus,button.bg-dark:hover {
     padding: 1.5rem!important
 }
 
-.pt-4,.py-4 {
+.py-4 {
+    padding-top: 1.5rem!important;
+    padding-bottom: 1.5rem!important;
+}
+
+
+.pt-4 {
     padding-top: 1.5rem!important
 }
 
@@ -7131,7 +7157,7 @@ a.bg-dark:focus,a.bg-dark:hover,button.bg-dark:focus,button.bg-dark:hover {
     padding-right: 1.5rem!important
 }
 
-.pb-4,.py-4 {
+.pb-4 {
     padding-bottom: 1.5rem!important
 }
 

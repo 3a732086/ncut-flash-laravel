@@ -1,7 +1,7 @@
 @extends('layouts.index')
 
 @section('content')
-    <div class="container1">
+    <div class="container">
         <div class="photo-box">
 {{--            <div id="home" class="tab-pane active">--}}
 {{--                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">--}}

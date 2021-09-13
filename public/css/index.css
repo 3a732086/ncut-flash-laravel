@@ -493,11 +493,17 @@ pre code {
     .container {
         max-width:540px
     }
+    .photo-box {
+        margin-top: 100px;
+    }
 }
 
 @media (min-width: 768px) {
     .container {
         max-width:720px
+    }
+    .photo-box {
+        margin-top: 400px;
     }
 }
 
@@ -505,32 +511,20 @@ pre code {
     .container {
         max-width:960px
     }
+    .photo-box {
+        margin-top: 450px;
+    }
 }
 
 @media (min-width: 1200px) {
     .container {
         max-width:1140px
     }
+    .photo-box {
+        margin-top: 500px;
+    }
 }
 
-.container1 {
-    max-width:1140px;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    min-height: 330px;
-}
-
-.photo-box {
-    /*background-image: url("/img/new-bg-image.jpg");*/
-    /*background-position: center;*/
-    /*background-repeat: no-repeat;*/
-    /*background-size: 100%;*/
-    /*background-size: cover;*/
-    /*max-width: 2000px;*/
-    margin-top: 500px;
-}
 
 .container-fluid {
     width: 100%;

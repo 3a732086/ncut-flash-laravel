@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Blue;
+use App\Green;
 use App\Greenmm;
 use Illuminate\Http\Request;
 use App\Yellow;
@@ -253,7 +254,7 @@ class QuizController extends Controller
     //green
     public function green_show()
     {
-        $green_data = Greenmm::all();
+        $green_data = Green::all();
         return view('admin.quiz.green.index' , compact('green_data'));
     }
 
@@ -265,7 +266,7 @@ class QuizController extends Controller
             toastr()->warning('請勿填白輸入');
             return redirect('admin/green');
         }
-        Greenmm::create([
+        Green::create([
             'Verb' => $request->verb,
             'Noun' => $request->noun,
             'Adjective' => $request->adjective,
@@ -278,14 +279,14 @@ class QuizController extends Controller
 
     public function green_edit(Request $request , $id)
     {
-        $data = Greenmm::find($id);
+        $data = Green::find($id);
         return view('admin.quiz.green.edit' , compact('data'));
     }
 
     public function green_update(Request $request , $id)
     {
-        // dd(Greenmm::all());
-        $data = Greenmm::find($id);
+        // dd(Green::all());
+        $data = Green::find($id);
         $data->Verb = $request->verb;
         $data->Noun = $request->noun;
         $data->Adjective = $request->adjective;

@@ -85,7 +85,7 @@ var AlpacaAdvanced = function() {
                         value: 4,
                         attributes: {
                             sport: 'Football',
-                            team: 'Green Bay Packers',
+                            team: 'green Bay Packers',
                             player: 'Brett Favre'
                         }
                     }, {

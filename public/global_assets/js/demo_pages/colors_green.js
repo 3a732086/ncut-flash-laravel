@@ -1,6 +1,6 @@
 /* ------------------------------------------------------------------------------
  *
- *  # Green color palette showcase
+ *  # green color palette showcase
  *
  *  Demo JS code for colors_green.html page
  *

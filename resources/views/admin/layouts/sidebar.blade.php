@@ -85,11 +85,27 @@
                 </ul>
             </li>
             <li class="nav-item nav-item-submenu">
-                <a href="#" class="nav-link"><i class="icon-pencil5"></i> <span>考試</span></a>
+                <a href="#" class="nav-link"><i class="icon-pencil5"></i> <span>考試(黃色)</span></a>
 
                 <ul class="nav nav-group-sub" data-submenu-title="quiz">
                     <li class="nav-item"><a href="{{route('yellow_show')}}" class="nav-link active">黃色區塊</a></li>
                     <li class="nav-item"><a href="{{route('show_data')}}" class="nav-link">學生考試狀況</a></li>
+                </ul>
+            </li>
+            <li class="nav-item nav-item-submenu">
+                <a href="#" class="nav-link"><i class="icon-pencil5"></i> <span>考試(綠色)</span></a>
+
+                <ul class="nav nav-group-sub" data-submenu-title="quiz">
+                    <li class="nav-item"><a href="{{route('green_show')}}" class="nav-link active">綠色區塊</a></li>
+{{--                    <li class="nav-item"><a href="{{route('show_data')}}" class="nav-link">學生考試狀況</a></li>--}}
+                </ul>
+            </li>
+            <li class="nav-item nav-item-submenu">
+                <a href="#" class="nav-link"><i class="icon-pencil5"></i> <span>考試(藍色)</span></a>
+
+                <ul class="nav nav-group-sub" data-submenu-title="quiz">
+                    <li class="nav-item"><a href="{{route('blue_show')}}" class="nav-link active">藍色區塊</a></li>
+{{--                    <li class="nav-item"><a href="{{route('show_data')}}" class="nav-link">學生考試狀況</a></li>--}}
                 </ul>
             </li>
             <!-- /main -->

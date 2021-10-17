@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Blue;
+use App\Green;
 use Illuminate\Http\Request;
 use App\Yellow;
 use App\Quiz_score;
@@ -244,5 +246,102 @@ class QuizController extends Controller
         $data->save();
 
         return redirect()->route('yellow_show');
+    }
+
+
+
+    //green
+    public function green_show()
+    {
+        $green_data = Green::all();
+        return view('admin.quiz.green.index' , compact('green_data'));
+    }
+
+
+    public function green_word_insert(Request $request)
+    {
+
+        if(is_null($request->verb) && is_null($request->noun) && is_null($request->adjective) && is_null($request->adverb)){
+            toastr()->warning('請勿填白輸入');
+            return redirect('admin/green');
+        }
+        Green::create([
+            'Verb' => $request->verb,
+            'Noun' => $request->noun,
+            'Adjective' => $request->adjective,
+            'Adverb' => $request->adverb,
+            'Count' => count(array_filter($request->except('_token')))
+        ]);
+        toastr()->success('新增成功');
+        return redirect('admin/green');
+    }
+
+    public function green_edit(Request $request , $id)
+    {
+        $data = Green::find($id);
+        return view('admin.quiz.green.edit' , compact('data'));
+    }
+
+    public function green_update(Request $request , $id)
+    {
+        // dd(Green::all());
+        $data = Green::find($id);
+        $data->Verb = $request->verb;
+        $data->Noun = $request->noun;
+        $data->Adjective = $request->adjective;
+        $data->Adverb = $request->adverb;
+        $data->Count = count(array_filter($request->except(['_token','_method'])));
+        $data->save();
+
+        return redirect()->route('green_show');
+    }
+
+
+
+    //blue
+    public function blue_show()
+    {
+        $blue_data = Blue::all();
+        return view('admin.quiz.blue.index' , compact('blue_data'));
+    }
+
+
+    public function blue_word_insert(Request $request)
+    {
+
+        if(is_null($request->verb) && is_null($request->noun) && is_null($request->adjective) && is_null($request->adverb)){
+            toastr()->warning('請勿填白輸入');
+            return redirect('admin/blue');
+        }
+        Blue::create([
+            'Verb' => $request->verb,
+            'Noun' => $request->noun,
+            'Adjective' => $request->adjective,
+            'Adverb' => $request->adverb,
+            'Count' => count(array_filter($request->except('_token')))
+        ]);
+        toastr()->success('新增成功');
+        return redirect('admin/blue');
+    }
+
+
+    public function blue_edit(Request $request , $id)
+    {
+        $data = Blue::find($id);
+        return view('admin.quiz.blue.edit' , compact('data'));
+    }
+
+    public function blue_update(Request $request , $id)
+    {
+        // dd(Blue::all());
+        $data = Blue::find($id);
+        $data->Verb = $request->verb;
+        $data->Noun = $request->noun;
+        $data->Adjective = $request->adjective;
+        $data->Adverb = $request->adverb;
+        $data->Count = count(array_filter($request->except(['_token','_method'])));
+        $data->save();
+
+        return redirect()->route('blue_show');
     }
 }

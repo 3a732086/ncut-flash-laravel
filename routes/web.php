@@ -33,7 +33,7 @@ Route::group(['middleware' => 'newauth'],function (){
     Route::get('/detail','FlashController@show_detail')->name('user_show');
     // Route::resource('/account','AccountController');
 
-    
+
 });
 Route::group(['middleware' => 'adminauth'],function (){
     Route::get('/quiz_show','QuizController@quiz_show')->name('quiz_show');
@@ -47,7 +47,7 @@ Route::group(['middleware' => 'adminauth'],function (){
         Route::get('/practice','QuizController@practice')->name('practice');
         Route::get('/practice_data/{id?}','QuizController@practice_data')->name('practice_data');
 
-    
+
     });
 });
 Route::group(['prefix' => 'admin' , 'middleware' => 'adminauth'],function (){
@@ -62,7 +62,7 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'adminauth'],function (){
 
     Route::post('/coursetopic/getcourse', 'CourseTopicController@getcourse');
     //export data↓↓↓↓↓↓↓
-               
+
     Route::get('/export_U_data', 'AdminController@Userdata_Export')->name('Userdata2xls');
     Route::get('/export_U_activity', 'AdminController@UserActivity_Export')->name('Useractivity2xls');
 
@@ -75,11 +75,26 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'adminauth'],function (){
     Route::get('/show_data','QuizController@show_data')->name('show_data');
     Route::get('/quiz_record','QuizController@quiz_record')->name('quiz_record');
 
+
+    //green
+    Route::get('/green','QuizController@green_show')->name('green_show');
+    Route::post('/green','QuizController@green_word_insert')->name('green_word_insert');
+    Route::get('/green/{id?}/edit','QuizController@green_edit')->name('green.edit');
+    Route::post('/green/update/{id?}','QuizController@green_update')->name('green.update');
+
+
+
+    //blue
+    Route::get('/blue','QuizController@blue_show')->name('blue_show');
+    Route::post('/blue','QuizController@blue_word_insert')->name('blue_word_insert');
+    Route::get('/blue/{id?}/edit','QuizController@blue_edit')->name('blue.edit');
+    Route::post('/blue/update/{id?}','QuizController@blue_update')->name('blue.update');
+
 });
 
 // Route::group(['prefix' => 'course' , 'middleware' => 'adminauth'],function (){
-    
-    
+
+
     // Route::get('/course','AdminController@setting_index');
 
     // Route::get('/click_rate', 'AdminController@click_rate_show')->name('ctr_show');

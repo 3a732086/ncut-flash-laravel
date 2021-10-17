@@ -86,7 +86,7 @@ var AlpacaControls = function() {
                 helper: 'Pick your favorite color',
                 optionLabels: {
                     red: 'Red',
-                    green: 'Green',
+                    green: 'green',
                     blue: 'Blue',
                     white: 'White',
                     black: 'Black'

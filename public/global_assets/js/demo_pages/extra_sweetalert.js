@@ -465,7 +465,7 @@ var SweetAlert = function () {
                 setTimeout(function() {
                     resolve({
                         '#ff0000': 'Red',
-                        '#00ff00': 'Green',
+                        '#00ff00': 'green',
                         '#0000ff': 'Blue'
                     });
                 }, 2000)
@@ -536,7 +536,7 @@ var SweetAlert = function () {
         //
         // Contextual alerts
         //
-        
+
         // Success alert
         $('#sweet_success').on('click', function() {
             swalInit.fire({
@@ -1031,7 +1031,7 @@ var SweetAlert = function () {
                     );
                 }
             });
-        });        
+        });
     };
 
     // SweetAlert with custom checkboxes, radios and file input
@@ -1082,7 +1082,7 @@ var SweetAlert = function () {
             var inputOptions = new Promise(function(resolve) {
                 resolve({
                     '#ff0000': 'Red',
-                    '#00ff00': 'Green',
+                    '#00ff00': 'green',
                     '#0000ff': 'Blue'
                 });
             });

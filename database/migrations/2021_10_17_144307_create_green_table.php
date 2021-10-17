@@ -15,11 +15,11 @@ class CreateGreenTable extends Migration
     {
         Schema::create('green', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('Verb');
-            $table->text('Noun');
-            $table->text('Adjective');
-            $table->text('Adverb');
-            $table->string('Count');
+            $table->text('Verb')->nullable();
+            $table->text('Noun')->nullable();
+            $table->text('Adjective')->nullable();
+            $table->text('Adverb')->nullable();
+            $table->string('Count')->nullable();
             $table->timestamps();
         });
     }

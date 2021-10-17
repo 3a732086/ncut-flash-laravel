@@ -1,6 +1,6 @@
 @extends('admin.layouts.template')
 
-@section('title', 'Green')
+@section('title', 'Greenmm')
 
 @section('script')
     <script src="{{ asset('global_assets/js/demo_pages/datatables_extension_buttons_print.js')}}"></script>

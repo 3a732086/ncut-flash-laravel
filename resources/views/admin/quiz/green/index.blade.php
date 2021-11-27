@@ -28,10 +28,10 @@
                 <thead>
                 <tr>
                     <td>No.</td>
-                    <td>Verb</td>
-                    <td>Noun</td>
-                    <td>Adjective</td>
-                    <td>Adverb</td>
+                    <td>synonym(v)</td>
+                    <td>synonym(n)</td>
+                    <td>synonym(adj)</td>
+                    <td>synonym(adv)</td>
                     <td>備註</td>
                 </tr>
                 </thead>
@@ -80,13 +80,13 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>Verb:</label>
+                                    <label>synonym(v):</label>
                                     <input type="text" name="verb" class="form-control" placeholder="add">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>Noun:</label>
+                                    <label>synonym(n):</label>
                                     <input type="text" name="noun" class="form-control" placeholder="addition">
                                 </div>
                             </div>
@@ -94,13 +94,13 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>Adjective:</label>
+                                    <label>synonym(adj):</label>
                                     <input type="text" name="adjective" class="form-control" placeholder="additional">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>Adverb:</label>
+                                    <label>synonym(adv):</label>
                                     <input type="text" name="adverb" class="form-control" placeholder="additionally">
                                 </div>
                             </div>

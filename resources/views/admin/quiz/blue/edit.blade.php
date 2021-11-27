@@ -31,13 +31,13 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>Verb:</label>
+                                    <label>synonym(v):</label>
                                     <input type="text" name="verb" class="form-control" placeholder="add" value="{{$data->Verb}}">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>Noun:</label>
+                                    <label>synonym(n):</label>
                                     <input type="text" name="noun" class="form-control" placeholder="addition" value="{{$data->Noun}}">
                                 </div>
                             </div>
@@ -45,13 +45,13 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>Adjective:</label>
+                                    <label>synonym(adj):</label>
                                     <input type="text" name="adjective" class="form-control" placeholder="additional" value="{{$data->Adjective}}">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>Adverb:</label>
+                                    <label>synonym(adv):</label>
                                     <input type="text" name="adverb" class="form-control" placeholder="additionally" value="{{$data->Adverb}}">
                                 </div>
                             </div>

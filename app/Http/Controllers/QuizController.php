@@ -258,10 +258,8 @@ class QuizController extends Controller
         return view('admin.quiz.green.index' , compact('green_data'));
     }
 
-
     public function green_word_insert(Request $request)
     {
-
         if(is_null($request->verb) && is_null($request->noun) && is_null($request->adjective) && is_null($request->adverb)){
             toastr()->warning('請勿填白輸入');
             return redirect('admin/green');

@@ -47,6 +47,17 @@ Route::group(['middleware' => 'adminauth'],function (){
         Route::get('/practice','QuizController@practice')->name('practice');
         Route::get('/practice_data/{id?}','QuizController@practice_data')->name('practice_data');
 
+        //-------------------------------------------------------------------------------------------
+        //green_section
+
+        Route::get('/green','QuizController@index_green')->name('test_green');
+        Route::get('/getgreen','QuizController@getgreen');
+        Route::post('/save','QuizController@save');
+
+        Route::get('/menu_green','QuizController@menu_green')->name('menu_green');
+        Route::get('/practice_green','QuizController@practice_green')->name('practice_green');
+        Route::get('/practice_data_green/{id?}','QuizController@practice_data_green')->name('practice_data_green');
+
 
     });
 });
@@ -81,7 +92,6 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'adminauth'],function (){
     Route::post('/green','QuizController@green_word_insert')->name('green_word_insert');
     Route::get('/green/{id?}/edit','QuizController@green_edit')->name('green.edit');
     Route::post('/green/update/{id?}','QuizController@green_update')->name('green.update');
-
 
 
     //blue

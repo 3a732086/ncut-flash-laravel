@@ -49,18 +49,24 @@ Route::group(['middleware' => 'adminauth'],function (){
 
         //-------------------------------------------------------------------------------------------
         //green_section
-
         Route::get('/green','QuizController@index_green')->name('test_green');
         Route::get('/getgreen','QuizController@getgreen');
-        Route::post('/save','QuizController@save');
 
         Route::get('/menu_green','QuizController@menu_green')->name('menu_green');
         Route::get('/practice_green','QuizController@practice_green')->name('practice_green');
         Route::get('/practice_data_green/{id?}','QuizController@practice_data_green')->name('practice_data_green');
 
+        //-------------------------------------------------------------------------------------------
+        //blue_section
+        Route::get('/blue','QuizController@index_green')->name('test_blue');
+        Route::get('/getblue','QuizController@getblue');
 
+        Route::get('/menu_blue','QuizController@menu_blue')->name('menu_blue');
+        Route::get('/practice_blue','QuizController@practice_blue')->name('practice_blue');
+        Route::get('/practice_data_blue/{id?}','QuizController@practice_data_blue')->name('practice_data_blue');
     });
 });
+
 Route::group(['prefix' => 'admin' , 'middleware' => 'adminauth'],function (){
     Route::get('/', 'AdminController@index')->name('index');
     Route::get('/show', 'AdminController@show')->name('admin_show');

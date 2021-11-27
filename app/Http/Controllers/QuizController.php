@@ -449,6 +449,7 @@ class QuizController extends Controller
     //----------------------前台----------------------------
 
 
+    //----------------------後台----------------------------
     //blue
     public function blue_show()
     {
@@ -495,4 +496,155 @@ class QuizController extends Controller
 
         return redirect()->route('blue_show');
     }
+    //----------------------後台----------------------------
+
+    //----------------------前台----------------------------
+    public function index_blue()
+    {
+        //
+        // $yellow_word = Yellow::where('Count' , '>=' , '2')->inRandomOrder()->limit(5)->get();
+        return view('quiz.blue.index');
+    }
+
+    public function menu_blue()
+    {
+        return view('quiz.blue.menu');
+    }
+
+    public function practice_blue()
+    {
+        return view('quiz.blue.practice');
+    }
+
+    public function getblue()
+    {
+        $blue_word = Blue::where('Count' , '>=' , '2')->select('Verb' , 'Noun' , 'Adjective' , 'Adverb')->inRandomOrder()->limit(5)->get()->toArray();
+        $blue_word[0] = array_filter($blue_word[0]);
+        foreach($blue_word as $key => $value){
+            $blue_word[$key] = array_values(array_filter($blue_word[$key]));
+        }
+
+        $new_randbox = [];
+        $box = ["btn1" , "btn2" , "btn3" , "btn4" , "btn5" , "btn6" , "btn7" , "btn8" , "btn9" , "btn10"];
+        while(count($box) >= 2){
+            $getrand = rand(0 ,count($box)-1);
+            $new_getrand = rand(0 , count($box)-1);
+            while( $getrand == $new_getrand){
+                $new_getrand = rand(0 , count($box)-1);
+            }
+            array_push($new_randbox , $box[$getrand]);
+            array_push($new_randbox , $box[$new_getrand]);
+            unset($box[$getrand]);
+            unset($box[$new_getrand]);
+            $box = array_values($box);
+        }
+        $new_word = [];
+        foreach($blue_word as $word){
+            switch(count($word)){
+                case 2:
+                    array_push($new_word , $word[0] , $word[1]);
+                    break;
+                case 3:
+                    $getrand = rand(0 ,2);
+                    $new_getrand = rand(0 , 2);
+                    while( $getrand == $new_getrand){
+                        $new_getrand = rand(0 , 2);
+                    }
+                    array_push($new_word , $word[$getrand] , $word[$new_getrand]);
+                    break;
+                case 4:
+                    $getrand = rand(0 ,3);
+                    $new_getrand = rand(0 , 3);
+                    while( $getrand == $new_getrand){
+                        $new_getrand = rand(0 , 3);
+                    }
+                    array_push($new_word , $word[$getrand] , $word[$new_getrand]);
+                    break;
+            }
+        }
+        return [$new_randbox , $new_word , array(0,0,1,1,2,2,3,3,4,4)];
+    }
+
+
+    public function practice_data_blue($id = 1)
+    {
+        switch($id){
+            case 1:
+                $blue_word = Blue::where('Count' , '>=' , '2')->select('Verb' , 'Noun' , 'Adjective' , 'Adverb')->limit(5)->get()->toArray();
+                break;
+            case 2:
+                $blue_word = Blue::where('Count' , '>=' , '2')->select('Verb' , 'Noun' , 'Adjective' , 'Adverb')->offset(5)->limit(5)->get()->toArray();
+                break;
+            case 3:
+                $blue_word = Blue::where('Count' , '>=' , '2')->select('Verb' , 'Noun' , 'Adjective' , 'Adverb')->offset(10)->limit(5)->get()->toArray();
+                break;
+            case 4:
+                $blue_word = Blue::where('Count' , '>=' , '2')->select('Verb' , 'Noun' , 'Adjective' , 'Adverb')->offset(15)->limit(5)->get()->toArray();
+                break;
+            case 5:
+                $blue_word = Blue::where('Count' , '>=' , '2')->select('Verb' , 'Noun' , 'Adjective' , 'Adverb')->offset(20)->limit(5)->get()->toArray();
+                break;
+            case 6:
+                $blue_word = Blue::where('Count' , '>=' , '2')->select('Verb' , 'Noun' , 'Adjective' , 'Adverb')->offset(25)->limit(5)->get()->toArray();
+                break;
+            case 7:
+                $blue_word = Blue::where('Count' , '>=' , '2')->select('Verb' , 'Noun' , 'Adjective' , 'Adverb')->offset(30)->limit(5)->get()->toArray();
+                break;
+            case 8:
+                $blue_word = Blue::where('Count' , '>=' , '2')->select('Verb' , 'Noun' , 'Adjective' , 'Adverb')->offset(35)->limit(5)->get()->toArray();
+                break;
+            case 9:
+                $blue_word = Blue::where('Count' , '>=' , '2')->select('Verb' , 'Noun' , 'Adjective' , 'Adverb')->offset(40)->limit(5)->get()->toArray();
+                break;
+            default:
+                $blue_word = Blue::where('Count' , '>=' , '2')->select('Verb' , 'Noun' , 'Adjective' , 'Adverb')->limit(5)->get()->toArray();
+                break;
+        }
+        // $yellow_word = Yellow::where('Count' , '>=' , '2')->select('Verb' , 'Noun' , 'Adjective' , 'Adverb')->inRandomOrder()->limit(5)->get()->toArray();
+        $blue_word[0] = array_filter($blue_word[0]);
+        foreach($blue_word as $key => $value){
+            $blue_word[$key] = array_values(array_filter($blue_word[$key]));
+        }
+
+        $new_randbox = [];
+        $box = ["btn1" , "btn2" , "btn3" , "btn4" , "btn5" , "btn6" , "btn7" , "btn8" , "btn9" , "btn10"];
+        while(count($box) >= 2){
+            $getrand = rand(0 ,count($box)-1);
+            $new_getrand = rand(0 , count($box)-1);
+            while( $getrand == $new_getrand){
+                $new_getrand = rand(0 , count($box)-1);
+            }
+            array_push($new_randbox , $box[$getrand]);
+            array_push($new_randbox , $box[$new_getrand]);
+            unset($box[$getrand]);
+            unset($box[$new_getrand]);
+            $box = array_values($box);
+        }
+        $new_word = [];
+        foreach($blue_word as $word){
+            switch(count($word)){
+                case 2:
+                    array_push($new_word , $word[0] , $word[1]);
+                    break;
+                case 3:
+                    $getrand = rand(0 ,2);
+                    $new_getrand = rand(0 , 2);
+                    while( $getrand == $new_getrand){
+                        $new_getrand = rand(0 , 2);
+                    }
+                    array_push($new_word , $word[$getrand] , $word[$new_getrand]);
+                    break;
+                case 4:
+                    $getrand = rand(0 ,3);
+                    $new_getrand = rand(0 , 3);
+                    while( $getrand == $new_getrand){
+                        $new_getrand = rand(0 , 3);
+                    }
+                    array_push($new_word , $word[$getrand] , $word[$new_getrand]);
+                    break;
+            }
+        }
+        return [$new_randbox , $new_word , array(0,0,1,1,2,2,3,3,4,4)];
+    }
+    //----------------------前台----------------------------
 }

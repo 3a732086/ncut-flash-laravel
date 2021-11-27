@@ -113,7 +113,7 @@ $("#getting-started")
         var res_quiz = [];
         var color = 1;
 
-        $.get("quiz/getgreen", function(data){
+        $.get("/getgreen", function(data){
             // re =data;
             console.log(data);
             for(var i = 0 ; i<data[0].length ; i++){

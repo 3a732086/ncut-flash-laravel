@@ -20,27 +20,27 @@
 
     button.words {
         background-image: url('{{asset('img/quiz/英文單字版.png')}}');
-        background-size: cover; 
-        width: 150px; 
-        height: 100px; 
+        background-size: cover;
+        width: 150px;
+        height: 100px;
         border: none;
         background-color: #f0f8ff00;
     }
 
     button.timer {
         background-image: url('{{asset('img/quiz/計時.png')}}');
-        background-size: cover; 
-        width: 150px; 
-        height: 100px; 
+        background-size: cover;
+        width: 150px;
+        height: 100px;
         border: none;
         background-color: #f0f8ff00;
     }
 
     button.score {
         background-image: url('{{asset('img/quiz/分數.png')}}');
-        background-size: cover; 
-        width: 150px; 
-        height: 100px; 
+        background-size: cover;
+        width: 150px;
+        height: 100px;
         border: none;
         background-color: #f0f8ff00;
         color: #fff;
@@ -58,7 +58,7 @@
     </style>
 </head>
 <body>
-    
+
     <div class="container-fluid ">
 
         <div class="row">
@@ -79,7 +79,7 @@
 
                 <button  id="btn6"class="words" value="4"></button>
                 <button  id="btn7"class="words" value="2"></button>
-                <button  id="btn8"class="words" value="4"></button>        
+                <button  id="btn8"class="words" value="4"></button>
                 <button  id="btn9"class="words" value="1"></button>
                 <button  id="btn10"class="words" value="5"></button>
                 <div id="redirect_btn"></div>
@@ -174,11 +174,11 @@
                             // console.log(fail);
                             // i=i+1;
                         }
-                        
+
                     }
                     temp.length = 0;
                 }
-            });  
+            });
                 window.counter = 20;
                 var timeless = true
                 var interval = setInterval(function() {
@@ -189,11 +189,11 @@
                         $('#clock').text("Times Up");
                         if(!window.submit){
                             if(window.fail.length == 0){
-                                alert('完全未作答。');  
+                                alert('完全未作答。');
                                 window.fail = res_quiz;
                             }
                             send_score(window.score, window.fail ,window.counter);
-                            alert('Times Up');  
+                            alert('Times Up');
                         }
                         $( "#redirect_btn" ).html( "<a href='{{route('quiz_show')}}' class='btn btn-info mr-2 mt-2'>查看成績</a><a href='{{route('test')}}' class='btn btn-info ml-2 mt-2'>再玩一次</a>" );
                         return;

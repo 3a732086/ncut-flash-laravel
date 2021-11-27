@@ -19,7 +19,7 @@
         }
 
         button.words {
-            background-image: url('{{asset('img/quiz/英文單字版.png')}}');
+            background-image:url('{{asset('img/quiz/英文單字版.png')}}');
             background-size: cover;
             width: 150px;
             height: 100px;
@@ -73,15 +73,13 @@
             <button id="btn1" class="words" value="1"></button>
             <button id="btn2" class="words" value="3"></button>
             <button id="btn3" class="words" value="2"></button>
-            <button  id="btn4"class="words" value="5"></button>
-
-            <button  id="btn5"class="words" value="3"></button>
-
-            <button  id="btn6"class="words" value="4"></button>
-            <button  id="btn7"class="words" value="2"></button>
-            <button  id="btn8"class="words" value="4"></button>
-            <button  id="btn9"class="words" value="1"></button>
-            <button  id="btn10"class="words" value="5"></button>
+            <button id="btn4" class="words" value="5"></button>
+            <button id="btn5" class="words" value="3"></button>
+            <button id="btn6" class="words" value="4"></button>
+            <button id="btn7" class="words" value="2"></button>
+            <button id="btn8" class="words" value="4"></button>
+            <button id="btn9" class="words" value="1"></button>
+            <button id="btn10" class="words" value="5"></button>
             <div id="redirect_btn"></div>
         </div>
     </div>
@@ -102,30 +100,30 @@ $("#getting-started")
 </footer>
 
 <script type="text/javascript">
-
+    var temp=[];
     $(document).ready(function() {
-
-        window.score = 0;
-        window.fail=[] ;
-        window.submit = false;
-        var total_quiz = 0;
-        var temp=[];
-        var res_quiz = [];
-        var color = 1;
-
-        $.get("/quiz/getgreen", function(data){
-            console.log(data);
+        @if(Request::get('id'))
+            query_url ="{{route('practice_data_blue' ,Request::get('id'))}}";
+        @else
+            query_url="{{route('practice_data_blue' ,1)}}";
+        @endif
+        $.get(query_url, function(data){
+            // re =data;
+            //console.log(data);
             for(var i = 0 ; i<data[0].length ; i++){
                 $("#"+data[0][i]).val(data[2][i]);
                 $("#"+data[0][i]).text(data[1][i]);
-                res_quiz = data[1];
             }
         });
 
+        var score = 0;
+        var total_quiz = 0;
+        var fail=[] ;
+        var submit = false;
         // var i = 0;
         $("button").click(function() {
             temp.push($(this));
-            console.log(temp);
+            //console.log(temp);
             if(temp.length > 1){
                 // console.log(temp[0].text());
                 if(temp[0].attr('id') == temp[1].attr('id')){
@@ -136,39 +134,26 @@ $("#getting-started")
                         console.log('yes');
                         temp[0].css('display','none');
                         temp[1].css('display','none');
-                        window.score+=10;
+                        score+=10;
                         total_quiz = total_quiz+1;
-                        console.log(total_quiz);
-                        $(".badge").text(window.score);
+                        //console.log(total_quiz);
+                        $(".badge").text(score);
                         if(total_quiz == 5){
-                            send_score(window.score, window.fail ,window.counter);
-                            window.submit = true;
-                            var ask = window.confirm("成功破關，是否要重新挑戰呢?");
+                            submit = true;
+                            var ask = window.confirm("Are you sure you want to delete this post?");
                             if (ask) {
-                                window.location.href = "{{route('test_green')}}";
-                                return;
-                            }
-                            window.counter = 0;
-                            // $( "#redirect" ).html( "<a href='{{route('quiz_show')}}' class='btn btn-info mr-2'>查看成績</a><a href='#' class='btn btn-info ml-2'>再玩一次</a>" );
+                                window.location.href = "quiz";
 
+                            }
                         }
                     }else{
-                        window.fail.push(temp[0].text());
-                        window.fail.push(temp[1].text());
+                        fail.push(temp[0].text());
+                        fail.push(temp[1].text());
                         $('button[value='+temp[0].val()+']').attr('disabled' ,true);
                         $('button[value='+temp[1].val()+']').attr('disabled' ,true);
-                        switch(color){
-                            case 1:
-                                $('button[value='+temp[0].val()+']').css('border', '2px solid black');
-                                $('button[value='+temp[1].val()+']').css('border', '2px solid red');
-                                color = color+1;
-                                break;
-                            default:
-                                $('button[value='+temp[0].val()+']').css('border', '2px solid blue');
-                                $('button[value='+temp[1].val()+']').css('border', '2px solid orange');
-                                break;
-                        }
 
+                        $('button[value='+temp[0].val()+']').css('border', '1px solid black');
+                        $('button[value='+temp[1].val()+']').css('border', '1px solid red');
                         // console.log(fail);
                         // i=i+1;
                     }
@@ -177,50 +162,43 @@ $("#getting-started")
                 temp.length = 0;
             }
         });
-        window.counter = 20;
-        var timeless = true
+        // 取得網址的id
+        var url = location.href;
+        var id = url.substring(url.lastIndexOf('=') + 1);
+        var next_id = parseInt(id) + 1;    //跳轉至下一頁的id
+
+        var counter = 20;
         var interval = setInterval(function() {
-            window.counter--;
+            counter--;
             // Display 'counter' wherever you want to display it.
-            if (window.counter <= 0) {
+            if (counter <= 0) {
                 clearInterval(interval);
                 $('#clock').text("Times Up");
-                if(!window.submit){
-                    if(window.fail.length == 0){
-                        alert('完全未作答。');
-                        window.fail = res_quiz;
-                    }
-                    send_score(window.score, window.fail ,window.counter);
-                    alert('Times Up');
+                alert('Times Up');
+                if (next_id <= 9) {
+                    $( "#redirect_btn" ).html("<a href='{{route('menu_blue')}}' class='btn btn-info mr-2 mt-2'>回關卡頁</a><a href='{{route('practice_blue')}}?id=" + next_id + "' class='btn btn-info mr-2 mt-2'>下一關</a>");
                 }
-                $( "#redirect_btn" ).html( "<a href='{{route('quiz_show')}}' class='btn btn-info mr-2 mt-2'>查看成績</a><a href='{{route('test_green')}}' class='btn btn-info ml-2 mt-2'>再玩一次</a>" );
+                else {
+                    $( "#redirect_btn" ).html("<a href='{{route('menu_blue')}}' class='btn btn-info mr-2 mt-2'>回關卡頁</a>");
+                }
                 return;
-            }else{
-                if(timeless && window.counter < 10 && window.fail.length != 0){
-                    $( "#redirect_btn" ).html( "<a href='#' onclick='btn_send()' class='btn btn-info mr-2 mt-2'>提早結束</a>" );
-                    timeless = false;
+            }
+            else if (counter <= 10){
+                $('#clock').text(counter+"秒");
+                if (next_id <= 9) {
+                    $( "#redirect_btn" ).html("<a href='{{route('menu_blue')}}' class='btn btn-info mr-2 mt-2'>提早結束，回關卡頁</a><a href='{{route('practice_blue')}}?id=" + next_id + "' class='btn btn-info mr-2 mt-2'>提早結束，跳下一關</a>");
                 }
-                $('#clock').text(window.counter+"秒");
-                // console.log("Timer --> " + counter);
+                else {
+                    $( "#redirect_btn" ).html("<a href='{{route('menu_blue')}}' class='btn btn-info mr-2 mt-2'>提早結束，回關卡頁</a>");
+                }
+            }
+            else{
+                $('#clock').text(counter+"秒");
+                //console.log("Timer --> " + counter);
             }
         }, 1000);
     });
-    function send_score(score , fail ,counter){
-        $.post("/quiz/save", {
-            "_token":"{{ csrf_token() }}",
-            "user_id":"{{ Auth::user()->id }}",
-            "score": score,
-            "time":20-counter,
-            "fail":fail
-        },function(data){
-        });
-    }
-    function btn_send(){
-        window.submit = true;
-        send_score(window.score , window.fail ,window.counter)
-        window.counter = 0;
-        return;
-    }
+
 </script>
 
 </body>

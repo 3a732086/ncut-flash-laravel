@@ -89,7 +89,6 @@
                                         <a class="nav-link" href="{{route('user_show')}}">檢視所有資料</a>
                                     </li>
                                 </ul>
-
                             @elseif (Auth::user()->role == 2)
                                 <ul class="navbar-nav mr-auto">
                                     <li class="nav-item active">
@@ -110,12 +109,13 @@
                                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                             考試/練習 <span class="caret"></span>
                                         </a>
-
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="{{ route('test') }}">考試區(黃)</a>
                                             <a class="dropdown-item" href="{{ route('test_green') }}">考試區(綠)</a>
+                                            <a class="dropdown-item" href="{{ route('test_blue') }}">考試區(藍)</a>
                                             <a class="dropdown-item" href="{{ route('menu') }}">練習區(黃)</a>
                                             <a class="dropdown-item" href="{{ route('menu_green') }}">練習區(綠)</a>
+                                            <a class="dropdown-item" href="{{ route('menu_blue') }}">練習區(藍)</a>
                                         </div>
                                     </li>
                                 </ul>

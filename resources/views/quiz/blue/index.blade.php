@@ -113,7 +113,7 @@ $("#getting-started")
         var res_quiz = [];
         var color = 1;
 
-        $.get("/quiz/getgreen", function(data){
+        $.get("/quiz/getblue", function(data){
             console.log(data);
             for(var i = 0 ; i<data[0].length ; i++){
                 $("#"+data[0][i]).val(data[2][i]);
@@ -145,7 +145,7 @@ $("#getting-started")
                             window.submit = true;
                             var ask = window.confirm("成功破關，是否要重新挑戰呢?");
                             if (ask) {
-                                window.location.href = "{{route('test_green')}}";
+                                window.location.href = "{{route('test_blue')}}";
                                 return;
                             }
                             window.counter = 0;
@@ -193,7 +193,7 @@ $("#getting-started")
                     send_score(window.score, window.fail ,window.counter);
                     alert('Times Up');
                 }
-                $( "#redirect_btn" ).html( "<a href='{{route('quiz_show')}}' class='btn btn-info mr-2 mt-2'>查看成績</a><a href='{{route('test_green')}}' class='btn btn-info ml-2 mt-2'>再玩一次</a>" );
+                $( "#redirect_btn" ).html( "<a href='{{route('quiz_show')}}' class='btn btn-info mr-2 mt-2'>查看成績</a><a href='{{route('test_blue')}}' class='btn btn-info ml-2 mt-2'>再玩一次</a>" );
                 return;
             }else{
                 if(timeless && window.counter < 10 && window.fail.length != 0){

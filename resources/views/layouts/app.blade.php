@@ -112,8 +112,10 @@
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="{{ route('test') }}">考試區</a>
-                                            <a class="dropdown-item" href="{{ route('menu') }}">練習區</a>
+                                            <a class="dropdown-item" href="{{ route('test') }}">考試區(黃)</a>
+                                            <a class="dropdown-item" href="{{ route('test_green') }}">考試區(綠)</a>
+                                            <a class="dropdown-item" href="{{ route('menu') }}">練習區(黃)</a>
+                                            <a class="dropdown-item" href="{{ route('menu_green') }}">練習區(綠)</a>
                                         </div>
                                     </li>
                                 </ul>

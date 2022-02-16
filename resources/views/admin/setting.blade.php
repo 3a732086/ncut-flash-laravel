@@ -28,7 +28,7 @@
                     <tr>
                         <th>Id</th>
                         <th>Name</th>
-                        <th>Class</th>
+                        <th>StudentID</th>
                         <th>Email</th>
                         <th>role</th>
                         <th>ps</th>
@@ -45,7 +45,7 @@
                     <td>
                         <form action="{{route('setting.destroy',$profile->id)}}" method="POST">
                             @csrf
-                            @method('DELETE')     
+                            @method('DELETE')
                             <button type="submit" class="btn btn-primary" value="{{$profile->id}}" onclick="return confirm('確認刪除此筆資料嗎?');" name='delete'>刪除</button>
                             <button type="button" class="btnSelect  btn btn-danger " value="{{$profile->id}}" name='update' data-toggle="modal" data-target="#exampleModalLong1">修改</button>
                         </form>
@@ -116,7 +116,7 @@ $(document).ready(function(){
 // code to read selected table row cell data (values).
 $("#myTable").on('click','.btnSelect',function(){
     // get the current row
-    var currentRow=$(this).closest("tr"); 
+    var currentRow=$(this).closest("tr");
     var col0=currentRow.find("td:eq(0)").html();
     var col1=currentRow.find("td:eq(1)").html(); // get current row 2nd table cell TD value
     var col2=currentRow.find("td:eq(2)").html(); // get current row 3rd table cell  TD value

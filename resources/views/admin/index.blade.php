@@ -23,7 +23,7 @@
                         <tr>
                             <th>最近登入時間</th>
                             <th>姓名</th>
-                            <th>班級</th>
+                            <th>學號</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,11 +32,11 @@
                             <td><span class="badge badge-success">{{$data->updated_at}}</span></td>
                             <td>{{$data->name}}</td>
                             <td>{{$data->class}}</td>
-                        </tr>  
-                    @endforeach                               
-                    </tbody>             
+                        </tr>
+                    @endforeach
+                    </tbody>
                 </table>
-                
+
             </div>
         </div>
         <div class="col-xl-5">
@@ -49,7 +49,7 @@
                                 <h3 class="font-weight-semibold mb-0">{{$today_user}}</h3>
                                 <span class="badge bg-teal-800 badge-pill align-self-center ml-auto">+53,6%</span>
                             </div>
-                            
+
                             <div>
                                 今日拜訪人數
                                 <div class="font-size-sm opacity-75">489 avg</div>
@@ -72,7 +72,7 @@
                                     <a class="list-icons-item" data-action="reload"></a>
                                 </div>
                             </div>
-                            
+
                             <div>
                                 今日練習量
                                 <div class="font-size-sm opacity-75">37,578 avg</div>
@@ -83,9 +83,9 @@
                     <!-- /today's revenue -->
                 </div>
             </div>
-            
+
         </div>
         <!-- /form inputs -->
-        
+
     </div>
 @stop

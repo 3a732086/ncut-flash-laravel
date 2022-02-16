@@ -28,7 +28,7 @@
                     <tr>
                         <td>最近登入時間</td>
                         <td>姓名</td>
-                        <td>班級</td>
+                        <td>學號</td>
                         <td>編號</td>
                     </tr>
                 </thead>
@@ -40,8 +40,8 @@
                         <td>{{$user->class}}</td>
                         <td>{{$user->id}}</td>
                         </tr>
-                    @endforeach                          
-                </tbody>           
+                    @endforeach
+                </tbody>
             </table>
         </div>
     </div>

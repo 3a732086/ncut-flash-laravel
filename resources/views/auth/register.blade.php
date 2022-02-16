@@ -72,7 +72,7 @@
 
 								<div class="form-group form-group-feedback form-group-feedback-left">
 									<input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required placeholder="Username" autocomplete="name" autofocus>
-									
+
 									<div class="form-control-feedback">
 										<i class="icon-user text-muted"></i>
 									</div>
@@ -84,7 +84,7 @@
 								</div>
 
 								<div class="form-group form-group-feedback form-group-feedback-left">
-									<input id="class" type="text" class="form-control @error('class') is-invalid @enderror" name="class" value="{{ old('class') }}" required placeholder="Class" autocomplete="class" autofocus>
+									<input id="class" type="text" class="form-control @error('class') is-invalid @enderror" name="class" value="{{ old('class') }}" required placeholder="StudentID" autocomplete="StudentID" autofocus>
 									<div class="form-control-feedback">
 										<i class="icon-address-book2 text-muted"></i>
 									</div>

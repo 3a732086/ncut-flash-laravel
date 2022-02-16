@@ -28,7 +28,7 @@
                 <thead>
                     <tr>
                         <th>#Name</th>
-                        <th>Class</th>
+                        <th>StudentID</th>
                         <th>Scenes</th>
                         <th>Number</th>
                         <th>Data</th>
@@ -45,7 +45,7 @@
                             <td>{{$userdata->inputdata}}</td>
                             <td>{{$userdata->inserted_at}}</td>
                         </tr>
-                    @endforeach                            
+                    @endforeach
                 </tbody>
                 <tfoot>
                     <tr>
@@ -56,7 +56,7 @@
                         <th></th>
                         <th></th>
                     </tr>
-                </tfoot>             
+                </tfoot>
             </table>
         </div>
     </div>

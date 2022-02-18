@@ -73,15 +73,13 @@
             <button id="btn1" class="words" value="1"></button>
             <button id="btn2" class="words" value="3"></button>
             <button id="btn3" class="words" value="2"></button>
-            <button  id="btn4"class="words" value="5"></button>
-
-            <button  id="btn5"class="words" value="3"></button>
-
-            <button  id="btn6"class="words" value="4"></button>
-            <button  id="btn7"class="words" value="2"></button>
-            <button  id="btn8"class="words" value="4"></button>
-            <button  id="btn9"class="words" value="1"></button>
-            <button  id="btn10"class="words" value="5"></button>
+            <button id="btn4" class="words" value="5"></button>
+            <button id="btn5" class="words" value="3"></button>
+            <button id="btn6" class="words" value="4"></button>
+            <button id="btn7" class="words" value="2"></button>
+            <button id="btn8" class="words" value="4"></button>
+            <button id="btn9" class="words" value="1"></button>
+            <button id="btn10" class="words" value="5"></button>
             <div id="redirect_btn"></div>
         </div>
     </div>

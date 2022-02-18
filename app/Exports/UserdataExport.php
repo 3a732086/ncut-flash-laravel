@@ -22,7 +22,7 @@ class UserdataExport implements FromCollection, WithHeadings, WithMapping
     {
         return [
             'Name',
-            'Class',
+            'StudentID',
             'Scenes',
             'Number',
             'Data',

@@ -22,7 +22,7 @@ class UseractivityExport implements FromCollection, WithHeadings, WithMapping
         return [
             '最近登入時間',
             '姓名',
-            '班級',
+            '學號',
             '編號',
 
         ];
